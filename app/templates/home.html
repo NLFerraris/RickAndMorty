@@ -37,6 +37,7 @@
         <h2 class="text-center">La búsqueda no arrojó resultados...</h2>
         {% else %} {% for img in images %}
         <div class="col">
+            <!-- Agregamos los bordes de color dependiendo el status -->
             <div class="card mb-3 ms-5
             {% if img.status == 'Alive' %} border border-success
             {% elif img.status == 'Dead' %} border border-danger 
@@ -48,12 +49,12 @@
                     <div class="col-md-4">
                         <img src="{{ img.url }}" class="card-img-top" alt="imagen">
                     </div>
-                   
                     <div class="col-md-8">
                         <div class="card-body">
                             <h3 class="card-title">{{ img.name }}</h3>
                             <p class="card-text">
                                 <strong>
+                                            <!-- se compara el estado del personaje y se le da el color del estado -->
                                             {% if img.status == 'Alive' %} 🟢 {{ img.status }}
                                             {% elif img.status == 'Dead' %} 🔴 {{ img.status }} 
                                             {% else %} 🟠 {{ img.status }} 
